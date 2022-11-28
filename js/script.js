@@ -17,7 +17,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 // 设置颜色及其透明度
-renderer.setClearColor(new THREE.Color("rgb(0,0,0)"));
+renderer.setClearColor(new THREE.Color("rgb(246, 216, 226)"));
 
 // 将输 canvas 的大小调整为 (width, height) 并考虑设备像素比，且将视口从 (0, 0) 开始调整到适合大小
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -52,7 +52,7 @@ new THREE.OBJLoader().load(
 
     // 基础网格材质
     heart.material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("rgb(0,0,0)"),
+      color: new THREE.Color("rgb(246, 216, 226)"),
     });
     originHeart = Array.from(heart.geometry.attributes.position.array);
     // 用于在网格表面上采样加权随机点的实用程序类。
@@ -69,7 +69,7 @@ let colors = [];
 const geometry = new THREE.BufferGeometry();
 
 const material = new THREE.PointsMaterial({
-  vertexColors: true, // Let Three.js knows that each point has a different color
+  vertexColors: true, 
   size: 0.009,
 });
 
@@ -108,6 +108,7 @@ class SparkPoint {
 }
 
 let spikes = [];
+
 function init(a) {
   positions = [];
   colors = [];
@@ -117,7 +118,9 @@ function init(a) {
   }
 }
 
-const beat = { a: 0 };
+const beat = {
+  a: 0
+};
 gsap
   .timeline({
     repeat: -1,
@@ -193,6 +196,7 @@ function render(a) {
 }
 
 window.addEventListener("resize", onWindowResize, false);
+
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
